@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+require_once 'Service/QuickSort.php';
+
+if ($argc == 1) {
+    return;
+}
+
+$data = $argv;
+array_shift($data);
+
+$start = microtime(true);
+
+$quickSort = new Service\QuickSort();
+$quickSort->sort($data);
+
+$time = microtime(true) - $start;
+
+$result = implode(' ',  $data);
+printf("{$result}\n");
+printf("result:%fsec\n", $time);
